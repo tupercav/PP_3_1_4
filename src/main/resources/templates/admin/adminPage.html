@@ -40,6 +40,15 @@
 <br>
 <br>
 <br>
-<a href="/admin/new">Create new user</a>
+<form  th:method="GET"  th:action="@{/admin/new}">
+    <input type="submit" value="Create new user"/>
+</form>
+<!--<a href="/admin/new">Create new user</a>-->
+<br>
+<br>
+<br>
+<form  action="#"  th:action="@{/logout}" method="get">
+    <input type="submit" value="exit"/>
+</form>
 </body>
 </html>

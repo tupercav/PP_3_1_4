@@ -22,7 +22,7 @@ public class AdminController {
     @GetMapping()
     public String index (Model model) {
         model.addAttribute("userList", userService.getAllUsers());
-        return "admin/index";
+        return "admin/adminPage";
     }
 
     @GetMapping("/{id}/edit")

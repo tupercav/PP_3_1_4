@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" xmlns:th="http://thymeleaf.org">
+    <title>All users</title>
+    <style>
+        table {
+            width: 50%; /* Ширина таблицы */
+            background: black; /* Цвет фона таблицы */
+            color: black; /* Цвет текста */
+            border-spacing: 1px; /* Расстояние между ячейками */
+        }
+        td, th {
+            background: white; /* Цвет фона ячеек */
+            padding: 2px; /* Поля вокруг текста */
+        }
+    </style>
+</head>
+<body>
+<div>
+    <table>
+        <caption>USER INFO</caption>
+        <tr><th>Name</th><th>Last Name</th><th>Department</th><th>Salary</th><th>Username</th><th>Roles</th></tr>
+            <tr><td> <h1 th:text="${user.getName()}"></h1></td>
+                <td><h1 th:text="${user.getLastName()}"></h1></td>
+                <td><h1 th:text="${user.getDepartment()}"></h1></td>
+                <td><h1 th:text="${user.getSalary()}"></h1></td>
+                <td><h1 th:text="${user.getUsername()}"></h1></td>
+                <td><h1 th:text="${user.getRoles().toString()}"></h1></td>
+
+    </table>
+</div>
+<br>
+<br>
+<form  action="#"  th:action="@{/logout}" method="get">
+    <input type="submit" value="exit"/>
+</form>
+</body>
+</html>
