@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form th:method="POST" th:action="@{/users}" th:object="${user}">
+<form th:method="POST" th:action="@{/admin}" th:object="${user}">
   <label for="name">Enter name:</label>
   <input type="text" th:field="*{name}" id="name"/>
   <br>
@@ -18,6 +18,15 @@
   <br>
   <label for="name">Enter salary:</label>
   <input type="text" th:field="*{salary}" id="salary"/>
+  <br>
+  <label for="name">Enter username:</label>
+  <input type="text" th:field="*{username}" id="username"/>
+  <br>
+  <label for="name">Enter password:</label>
+  <input type="text" th:field="*{password}" id="password"/>
+  <br>
+  <label for="name">Enter role:</label>
+  <input type="text" th:field="*{roles}" id="roles"/>
   <br>
   <input type="submit" value="Create!"/>
 </form>

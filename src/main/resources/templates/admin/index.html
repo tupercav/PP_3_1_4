@@ -20,16 +20,18 @@
 <div>
     <table>
         <caption>USERS</caption>
-        <tr><th>Name</th><th>Last Name</th><th>Department</th><th>Salary</th><th>Modify User</th><th>Delete user</th></tr>
+        <tr><th>Name</th><th>Last Name</th><th>Department</th><th>Salary</th><th>Username</th><th>Roles</th><th>Modify User</th><th>Delete user</th></tr>
         <th:block th:each="users : ${userList}">
             <tr><td> <h1 th:text="${users.getName()}"></h1></td>
                 <td><h1 th:text="${users.getLastName()}"></h1></td>
                 <td><h1 th:text="${users.getDepartment()}"></h1></td>
                 <td><h1 th:text="${users.getSalary()}"></h1></td>
-                <td><form th:method="GET" th:action="@{/users/{id}/edit(id=${users.getId()})}">
+                <td><h1 th:text="${users.getUsername()}"></h1></td>
+                <td><h1 th:text="${users.getRoles().toString()}"></h1></td>
+                <td><form th:method="GET" th:action="@{/admin/{id}/edit(id=${users.getId()})}">
                     <input type="submit" value="Edit details"/>
                 </form></td>
-                <td><form th:method="DELETE" th:action="@{/users/{id}(id=${users.getId()})}">
+                <td><form th:method="DELETE" th:action="@{/admin/{id}(id=${users.getId()})}">
                     <input type="submit" value="Delete"/>
                 </form></td></tr>
         </th:block>
@@ -38,6 +40,6 @@
 <br>
 <br>
 <br>
-<a href="/users/new">Create new user</a>
+<a href="/admin/new">Create new user</a>
 </body>
 </html>
