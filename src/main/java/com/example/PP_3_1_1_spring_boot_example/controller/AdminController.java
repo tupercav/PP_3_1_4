@@ -19,6 +19,7 @@ public class AdminController {
     private UserService userService;
 
 
+
     @GetMapping()
     public String index (Model model) {
         model.addAttribute("userList", userService.getAllUsers());
@@ -28,6 +29,7 @@ public class AdminController {
     @GetMapping("/{id}/edit")
     public String editUser (Model model, @PathVariable("id") int id) {
         model.addAttribute("user", userService.getUserById(id));
+        model.addAttribute("rolesList", userService.getAllRoles());
         return "admin/edit";
     }
 
@@ -44,7 +46,8 @@ public class AdminController {
     }
 
     @GetMapping("/new")
-    public String newUser (@ModelAttribute("user") User user) {
+    public String newUser (@ModelAttribute("user") User user, Model model) {
+        model.addAttribute("rolesList", userService.getAllRoles());
         return "admin/new";
     }
 

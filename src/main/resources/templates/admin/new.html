@@ -25,10 +25,22 @@
   <label for="name">Enter password:</label>
   <input type="text" th:field="*{password}" id="password"/>
   <br>
-  <label for="name">Enter role:</label>
-  <input type="text" th:field="*{roles}" id="roles"/>
+<!--  <label for="name">Enter role:</label>-->
+<!--  <input type="text" th:field="*{roles}" id="roles"/>-->
+<!--  <br>-->
+<!--  <label for="role">Enter role:</label>-->
+<!--  <select name="role" id="role" multiple="multiple">-->
+<!--    <option value="ROLE_USER">USER</option>-->
+<!--    <option value="ROLE_ADMIN">ADMIN</option>-->
+<!--  </select>-->
+
+  <th:block th:each="role: ${rolesList}">
+    <input type="checkbox" th:field="*{roles}"
+           th:text="${role.name}" th:value="${role.id}" class="m-2"/>
+  </th:block>
   <br>
   <input type="submit" value="Create!"/>
+  <br>
 </form>
 
 </body>
