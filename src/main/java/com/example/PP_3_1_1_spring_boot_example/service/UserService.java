@@ -9,7 +9,9 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.security.RolesAllowed;
 import javax.transaction.Transactional;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Transactional
 @Component
@@ -28,6 +30,8 @@ public class UserService {
     }
 
     public List<Role> getAllRoles(){return roleRepository.findAll();}
+    public Role getRole (String name) {return roleRepository.findByName(name);}
+    public void saveRole (Role role) {roleRepository.save(role);}
 
     public User getUserById(int id) {
         return userRepository.getOne(id);
@@ -44,6 +48,7 @@ public class UserService {
     public User findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
+
 
 
 }

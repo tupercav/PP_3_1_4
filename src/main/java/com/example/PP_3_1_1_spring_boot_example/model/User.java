@@ -111,6 +111,14 @@ public class User implements UserDetails {
     public Set<Role> getRoles() {
         return roles;
     }
+    public String rolesToString () {
+        StringBuilder roles = new StringBuilder();
+        for (Role role:getRoles()) {
+            roles.append(role.toString());
+            roles.append(" ");
+        }
+        return roles.toString();
+    }
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
