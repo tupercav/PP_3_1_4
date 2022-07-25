@@ -16,9 +16,9 @@ import java.util.Set;
 
 @Component
 public class Init {
-    private final RoleRepository roleRepository;
-    private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
+    private RoleRepository roleRepository;
+    private UserRepository userRepository;
+    private PasswordEncoder passwordEncoder;
 
     public Init(RoleRepository roleRepository, UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.roleRepository = roleRepository;
