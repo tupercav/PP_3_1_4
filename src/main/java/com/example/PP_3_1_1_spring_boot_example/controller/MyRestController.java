@@ -24,7 +24,13 @@ public class MyRestController {
 
     @GetMapping("/user")
     public ResponseEntity<User> getUserByUsername (Principal principal) {
+        System.out.println(principal.getName());
         return new ResponseEntity<>(userService.getUserByUsername(principal.getName()), HttpStatus.OK);
+    }
+    @GetMapping("/user/{id}")
+    public User getUserById(@PathVariable int id) {
+        User user = userService.getUserById(id);
+        return user;
     }
 
     @GetMapping ("/admin")
